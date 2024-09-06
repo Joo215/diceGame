@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 70%;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: linear-gradient(to top left, #8343c7 0%, #5e33e0 100%);
+  color: rgb(41, 38, 38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+main {
+  position: relative;
+  width: 100rem;
+  height: 60rem;
+  filter: blur();
+  display: flex;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  box-shadow: 0 4rem 5rem rgba(0, 0, 0, 0.25);
+}
+
+.player {
+  padding: 7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex: 50%;
+}
+
+.player-name {
+  font-size: 4.5rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.player-score {
+  font-size: 8rem;
+  font-weight: 300;
+  color: #8636c7;
+  margin-bottom: auto;
+}
+
+.player--turn {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.current {
+  background-color: #871b87;
+  padding: 2.5rem;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+  width: 65%;
+  opacity: 0.8;
+}
+
+.current-title {
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  color: #ddd;
+}
+
+.current-score {
+  font-size: 4rem;
+}
+
+.btn--new {
+  top: 4rem;
+}
+
+.btn {
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 2.5rem;
+  position: absolute;
+  border-radius: 50rem;
+  box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
+  transform: translateX(-50%);
+  left: 50%;
+  color: #444;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 2rem;
+  cursor: pointer;
+  font-weight: 400;
+  transition: all 0.2s;
+}
+
+.btn--roll {
+  top: 41rem;
+}
+.btn--hold {
+  top: 48rem;
+}
+
+.dice {
+  position: absolute;
+  top: 17rem;
+  height: 12.5rem;
+  transform: translateX(-50%);
+  left: 50%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translate(-50%, 5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
