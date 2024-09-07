@@ -25,12 +25,20 @@ function start() {
 }
 start();
 
-function nextturn() {
+function nextTurn() {
   document.getElementById(`current--${playerTurn}`).textContent = 0;
   currentScore = 0;
   playerTurn = playerTurn === 0 ? 1 : 0;
   player1.classList.toggle("player--turn");
   player2.classList.toggle("player--turn");
+
+  const turnMessage = document.createElement("div");
+  turnMessage.classList.add(playerTurn === 0 ? "player1-turn" : "player2-turn");
+  turnMessage.textContent = `Plyear${playerTurn + 1} Turn`;
+  document.body.appendChild(turnMessage);
+  setTimeout(() => {
+    document.body.removeChild(turnMessage);
+  }, 1000);
 }
 function btnRollClick() {
   if (playing) {
@@ -45,7 +53,7 @@ function btnRollClick() {
       document.getElementById(`current--${playerTurn}`).textContent =
         currentScore;
     } else {
-      nextturn();
+      nextTurn();
     }
   }
 }
