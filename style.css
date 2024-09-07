@@ -136,8 +136,22 @@ main {
   color: white;
 }
 
+.winner-player {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #3700ff;
+  color: white;
+  padding: 3rem;
+  font-size: 5.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
 .winner {
-  background-color: aqua;
+  background-color: aquamarine;
 }
 
 .winner .player-name {

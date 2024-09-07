@@ -26,6 +26,11 @@ function start() {
   diceImg.classList.add("hidden");
   player1.classList.add("player--turn");
   player2.classList.remove("player--turn");
+
+  const winnerMessage = document.querySelector(".winner-player");
+  if (winnerMessage) {
+    winnerMessage.remove();
+  }
 }
 start();
 
@@ -72,6 +77,13 @@ function btnHoldClick() {
     if (scores[playerTurn] >= 50) {
       playing = false;
       diceImg.classList.add("hidden");
+
+      if (!document.querySelector(".winner-player")) {
+        const winnerMessage = document.createElement("div");
+        winnerMessage.classList.add("winner-player");
+        winnerMessage.textContent = `Winner: Player ${playerTurn + 1}`;
+        document.body.appendChild(winnerMessage);
+      }
 
       document.querySelector(`.player--${playerTurn}`).classList.add("winner");
       document
