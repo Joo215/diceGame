@@ -16,12 +16,16 @@ function start() {
   currentScore = 0;
   playerTurn = 0;
   playing = true;
-  diceImg.classList.add("hidden");
-  player1.classList.add("player--turn");
+
   score1.textContent = 0;
   score2.textContent = 0;
   currentl.textContent = 0;
   current2.textContent = 0;
+  player1.classList.remove("winner");
+  player2.classList.remove("winner");
+  diceImg.classList.add("hidden");
+  player1.classList.add("player--turn");
+  player2.classList.remove("player--turn");
 }
 start();
 
@@ -34,12 +38,13 @@ function nextTurn() {
 
   const turnMessage = document.createElement("div");
   turnMessage.classList.add(playerTurn === 0 ? "player1-turn" : "player2-turn");
-  turnMessage.textContent = `Plyear${playerTurn + 1} Turn`;
+  turnMessage.textContent = `Plyear${playerTurn + 1} Turn `;
   document.body.appendChild(turnMessage);
   setTimeout(() => {
     document.body.removeChild(turnMessage);
   }, 1000);
 }
+
 function btnRollClick() {
   if (playing) {
     const dice = Math.trunc(Math.random() * 6) + 1;
@@ -58,4 +63,26 @@ function btnRollClick() {
   }
 }
 
+function btnHoldClick() {
+  if (playing) {
+    scores[playerTurn] += currentScore;
+    document.getElementById(`score--${playerTurn}`).textContent =
+      scores[playerTurn];
+
+    if (scores[playerTurn] >= 50) {
+      playing = false;
+      diceImg.classList.add("hidden");
+
+      document.querySelector(`.player--${playerTurn}`).classList.add("winner");
+      document
+        .querySelector(`.player--${playerTurn}`)
+        .classList.remove("player--turn");
+    } else {
+      nextTurn();
+    }
+  }
+}
+
 btnRoll.addEventListener("click", btnRollClick);
+btnHold.addEventListener("click", btnHoldClick);
+btnNew.addEventListener("click", start);

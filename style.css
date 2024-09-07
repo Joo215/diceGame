@@ -135,3 +135,19 @@ main {
   border-radius: 30px;
   color: white;
 }
+
+.winner {
+  background-color: aqua;
+}
+
+.winner .player-name {
+  font-weight: 700;
+  color: #e12258;
+  font-size: 6rem;
+}
+
+.winner .player-score {
+  font-weight: 700;
+  color: #e12258;
+  font-size: 10rem;
+}
