@@ -23,7 +23,6 @@ function start() {
   current2.textContent = 0;
   player1.classList.remove("winner");
   player2.classList.remove("winner");
-  diceImg.classList.add("hidden");
   player1.classList.add("player--turn");
   player2.classList.remove("player--turn");
 
@@ -53,9 +52,6 @@ function nextTurn() {
 function btnRollClick() {
   if (playing) {
     const dice = Math.trunc(Math.random() * 6) + 1;
-
-    diceImg.classList.remove("hidden");
-
     diceImg.src = `dice-${dice}.png`;
 
     if (dice !== 1 && dice !== 2) {
@@ -76,7 +72,6 @@ function btnHoldClick() {
 
     if (scores[playerTurn] >= 50) {
       playing = false;
-      diceImg.classList.add("hidden");
 
       if (!document.querySelector(".winner-player")) {
         const winnerMessage = document.createElement("div");
